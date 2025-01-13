@@ -108,9 +108,32 @@ textarea:not([rows]) {
   --semibold-weight: 600;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 body {
   font-family: "Outfit", sans-serif;
   padding: 15px 20px;
+  animation: fadeIn 1s ease-in-out;
 }
 
 main {
@@ -129,6 +152,7 @@ header {
   justify-content: center;
   gap: 1.5rem;
   padding: 2rem;
+  animation: slideIn 1s ease-in-out;
 }
 
 .label {
@@ -163,6 +187,9 @@ h1 {
   padding: 3rem 2rem;
   overflow: hidden;
   height: 400px;
+  animation: fadeIn 1s ease-in-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
 }
 
 .team-member::before {
@@ -237,6 +264,9 @@ h1 {
   padding: 3rem 2rem;
   height: 400px;
   gap: 1rem;
+  animation: fadeIn 1s ease-in-out;
+  animation-delay: 0.7s;
+  animation-fill-mode: both;
 }
 
 a {
