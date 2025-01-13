@@ -107,3 +107,236 @@ textarea:not([rows]) {
   --medium-weight: 500;
   --semibold-weight: 600;
 }
+
+body {
+  font-family: "Outfit", sans-serif;
+  padding: 15px 20px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  background-color: var(--main-bg-color);
+  background-image: url("./resources/Background_decor.svg");
+  background-repeat: no-repeat;
+  border-radius: 1.2rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.label {
+  font-size: var(--label-size);
+  font-weight: var(--semibold-weight);
+  color: var(--label-text-color);
+}
+
+h1 {
+  font-size: var(--heading-size);
+  font-weight: var(--medium-weight);
+}
+
+.description {
+  font-size: var(--body-size);
+  font-weight: var(--medium-weight);
+  color: var(--body-text-color);
+  width: 90%;
+  text-wrap: wrap;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.team-member {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem 2rem;
+  overflow: hidden;
+  height: 400px;
+}
+
+.team-member::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(217, 217, 217, 0) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 1;
+}
+
+.team-member img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  opacity: 0.85;
+}
+
+.team-member .name,
+.team-member .job {
+  position: relative;
+  z-index: 3;
+  margin: 0;
+}
+
+.name {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: var(--medium-weight);
+}
+
+.job {
+  color: #ffffff;
+  font-size: var(--body-size);
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.team-member.one {
+  background-color: var(--box-bg-color-one);
+}
+
+.team-member.two {
+  background-color: var(--box-bg-color-two);
+}
+
+.team-member.three {
+  background-color: var(--box-bg-color-three);
+}
+
+.team-member.four {
+  background-color: var(--box-bg-color-four);
+}
+
+.team-member.five {
+  background-color: var(--box-bg-color-five);
+}
+
+.external-link-container {
+  display: flex;
+  align-items: flex-end;
+  padding: 3rem 2rem;
+  height: 405px;
+  gap: 1rem;
+}
+
+a {
+  display: flex;
+  gap: 0.3rem;
+  color: var(--body-text-color);
+  font-weight: var(--medium-weight);
+  text-decoration: none;
+}
+
+@media (min-width: 64rem) and (max-width: 80rem) {
+  header {
+    width: 48%;
+  }
+
+  .members-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "one two three"
+      "four five six";
+  }
+
+  .team-member {
+    padding: 1rem;
+  }
+
+  .team-member.one {
+    grid-area: one;
+  }
+
+  .team-member.two {
+    grid-area: two;
+  }
+
+  .team-member.three {
+    grid-area: three;
+  }
+
+  .external-link-container {
+    padding: 1rem;
+    grid-area: four;
+  }
+
+  .team-member.four {
+    grid-area: five;
+  }
+
+  .team-member.five {
+    grid-area: six;
+    border-bottom-right-radius: 1.2rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0;
+    grid-template-areas:
+      "header header one two"
+      "external-link three four five";
+  }
+
+  header {
+    grid-area: header;
+    width: 90%;
+  }
+
+  .members-grid {
+    display: contents; /* Use contents to allow direct child elements to participate in the grid layout */
+  }
+
+  .team-member {
+    padding: 1rem;
+  }
+
+  .team-member.one {
+    grid-area: one;
+  }
+
+  .team-member.two {
+    grid-area: two;
+  }
+
+  .external-link-container {
+    grid-area: external-link;
+    padding: 1rem;
+  }
+
+  .team-member.three {
+    grid-area: three;
+  }
+
+  .team-member.four {
+    grid-area: four;
+  }
+
+  .team-member.five {
+    grid-area: five;
+    border-bottom-right-radius: 1.2rem;
+  }
+}
