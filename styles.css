@@ -201,7 +201,7 @@ h1 {
   height: 100%;
   background: linear-gradient(
     180deg,
-    rgba(217, 217, 217, 0) 0%,
+    rgba(217, 217, 217, 0) 80%,
     rgba(0, 0, 0, 0.8) 100%
   );
   z-index: 1;
@@ -321,6 +321,9 @@ a {
 }
 
 @media (min-width: 80rem) {
+  body {
+    padding: 20px 40px;
+  }
   main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -342,6 +345,7 @@ a {
 
   .team-member {
     padding: 1.5rem;
+    height: 300px;
   }
 
   .team-member.one {
@@ -356,6 +360,7 @@ a {
   .external-link-container {
     grid-area: external-link;
     padding: 1.5rem;
+    height: 300px;
   }
 
   .team-member.three {
